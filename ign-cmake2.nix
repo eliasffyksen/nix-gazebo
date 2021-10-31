@@ -5,11 +5,11 @@
 
 stdenv.mkDerivation rec {
   name = "ignition-cmake2";
-  version = "2.5.0";
+  version = "2.9.0";
 
   src = builtins.fetchTarball {
     url = "https://github.com/ignitionrobotics/ign-cmake/archive/refs/tags/${name}_${version}.tar.gz";
-    sha256 = "1xgw1hccr005sd2456hn9ligrfj3xk81v3bhw0vvv61nmh5l4k7f";
+    sha256 = "0yg5prhkgysp2wqrsh71mv582ry154sm14ps20rsq138zhnf9751";
   };
 
   nativeBuildInputs = with pkgs; [ cmake ];
