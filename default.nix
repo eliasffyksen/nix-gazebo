@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
     # (callPackage (import ../nix-ign-transport8) {})
     # (callPackage (import ../nix-ign-common3) {})
     # (callPackage (import ../nix-ign-fuel-tools4) {})
-    # (callPackage (import ./ign-math.nix) {})
+    (callPackage (import ./ign-math6.nix) {})
     (callPackage (import ./ign-cmake2.nix) {})
   ];
   buildInputs = with pkgs; [ libsForQt5.qt5.wrapQtAppsHook ];
