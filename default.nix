@@ -22,7 +22,6 @@ stdenv.mkDerivation rec {
     (callPackage (import ./ign-msgs5.nix) {})
     (callPackage (import ./ign-math6.nix) {})
     (callPackage (import ./ign-cmake2.nix) {})
-    (callPackage (import ./dart-sim.nix) {})
   ];
   buildInputs = with pkgs; [ libsForQt5.qt5.wrapQtAppsHook ];
 
