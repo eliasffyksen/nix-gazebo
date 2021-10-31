@@ -15,14 +15,14 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = with pkgs; [
     cmake pkg-config freeimage protobuf libGL libtar tinyxml tinyxml-2 openal curl tbb ogre libccd gts bullet libusb1 boost ffmpeg libuuid zeromq cppzmq xorg.libX11 libsodium
     libsForQt5.qwt
-    (callPackage (import ./dart-sim.nix) {})
     # (callPackage (import ./sdformat9.nix) {})
-    # (callPackage (import ../nix-ign-msgs5) {})
     # (callPackage (import ../nix-ign-transport8) {})
     # (callPackage (import ../nix-ign-common3) {})
     # (callPackage (import ../nix-ign-fuel-tools4) {})
+    (callPackage (import ./ign-msgs5.nix) {})
     (callPackage (import ./ign-math6.nix) {})
     (callPackage (import ./ign-cmake2.nix) {})
+    (callPackage (import ./dart-sim.nix) {})
   ];
   buildInputs = with pkgs; [ libsForQt5.qt5.wrapQtAppsHook ];
 
