@@ -4,20 +4,20 @@
 }:
 
 stdenv.mkDerivation rec {
-  name = "gazebo";
+  name = "gazebo11";
   version = "11.9.0";
 
   src = builtins.fetchTarball {
-    url = "https://github.com/osrf/gazebo/archive/refs/tags/gazebo11_${version}.tar.gz";
+    url = "https://github.com/osrf/gazebo/archive/refs/tags/${name}_${version}.tar.gz";
     sha256 = "02cv2p0vz1w8xnwnvrrl0plmwg47298is31bv0mdgdsqn70ldwb0";
   };
 
   nativeBuildInputs = with pkgs; [
     cmake pkg-config freeimage protobuf libGL libtar tinyxml tinyxml-2 openal curl tbb ogre libccd gts bullet libusb1 boost ffmpeg libuuid zeromq cppzmq xorg.libX11 libsodium
     libsForQt5.qwt
-    # (callPackage (import ./sdformat9.nix) {})
     # (callPackage (import ../nix-ign-common3) {})
     # (callPackage (import ../nix-ign-fuel-tools4) {})
+    (callPackage (import ./sdformat9.nix) {})
     (callPackage (import ./ign-transport8.nix) {})
     (callPackage (import ./ign-msgs5.nix) {})
     (callPackage (import ./ign-math6.nix) {})
