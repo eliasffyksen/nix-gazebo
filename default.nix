@@ -16,9 +16,9 @@ stdenv.mkDerivation rec {
     cmake pkg-config freeimage protobuf libGL libtar tinyxml tinyxml-2 openal curl tbb ogre libccd gts bullet libusb1 boost ffmpeg libuuid zeromq cppzmq xorg.libX11 libsodium
     libsForQt5.qwt
     # (callPackage (import ./sdformat9.nix) {})
-    # (callPackage (import ../nix-ign-transport8) {})
     # (callPackage (import ../nix-ign-common3) {})
     # (callPackage (import ../nix-ign-fuel-tools4) {})
+    (callPackage (import ./ign-transport8.nix) {})
     (callPackage (import ./ign-msgs5.nix) {})
     (callPackage (import ./ign-math6.nix) {})
     (callPackage (import ./ign-cmake2.nix) {})
@@ -27,8 +27,8 @@ stdenv.mkDerivation rec {
   buildInputs = with pkgs; [ libsForQt5.qt5.wrapQtAppsHook ];
 
   configurePhase = ''
-  mkdir build && cd build
-  cmake .. -DCMAKE_INSTALL_PREFIX=$out
+    mkdir build && cd build
+    cmake .. -DCMAKE_INSTALL_PREFIX=$out
   '';
 
   buildPhase = ''
@@ -36,7 +36,7 @@ stdenv.mkDerivation rec {
   '';
 
   installPhase = ''
-  make install
+    make install
   '';
 
   meta = {
