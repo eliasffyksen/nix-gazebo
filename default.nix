@@ -15,7 +15,7 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = with pkgs; [
     cmake pkg-config freeimage protobuf libGL libtar tinyxml tinyxml-2 openal curl tbb ogre libccd gts bullet libusb1 boost ffmpeg libuuid zeromq cppzmq xorg.libX11 libsodium
     libsForQt5.qwt
-    # (callPackage (import ../nix-ign-fuel-tools4) {})
+    (callPackage (import ./ign-fuel-tools4.nix) {})
     (callPackage (import ./ign-common3.nix) {})
     (callPackage (import ./sdformat9.nix) {})
     (callPackage (import ./ign-transport8.nix) {})
